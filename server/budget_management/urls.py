@@ -16,7 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from project_budget.views import (
-    project_list_view
+    project_list_view,
+    ProjectList
 )
 urlpatterns = [
     path('admin/', admin.site.urls),

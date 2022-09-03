@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+{%block content%}
+<ul>
+    {%for project in projects.all%}
+    <li>
+        <div class="card">
+            <h1 class="title">{{project.title}}</h1>
+            <div class="right-top">
+              <input type="range" min="0" max={{project.allocated}} value={{project.budget_used}}></input>
+              <h3 class="fundStatus">{{project.budget_used}} / {{project.allocated}}</h3>
+            </div>
+          </div>
+    </li>
+    {% endfor %}
+</ul>
+
+
+{%endblock content%}

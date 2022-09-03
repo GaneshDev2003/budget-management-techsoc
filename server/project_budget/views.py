@@ -1,6 +1,18 @@
+from urllib import response
 from django.shortcuts import render
 from .models import ProjectModel, PurchaseModel
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .serializers import ProjectSerializer
 # Create your views here.
+
+
+class ProjectList(APIView):
+    def get(self,request):
+        projectsObj = ProjectModel.objects.all()
+        serializedObj = ProjectSerializer(projectsObj, many = True)
+        return Response(serializedObj.data)
+
 def create_project_view(request):
     if(request.method == 'POST'):
         postData = request.POST
