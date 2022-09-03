@@ -1,5 +1,5 @@
 from urllib import response
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import ProjectModel, PurchaseModel
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -18,11 +18,12 @@ def create_project_view(request):
         postData = request.POST
         title = postData['title']
         allocated = postData['allocated']
-        project = ProjectModel.object.create(
+        project = ProjectModel.objects.create(
             title = title,
             allocated = allocated
         )
         project.save()
+        return redirect('project_list')
     return render(request, 'create_project.html', context={})
 def project_list_view(request):
     projects = ProjectModel.objects.all()
@@ -31,14 +32,8 @@ def project_list_view(request):
         })
 
 def project_detail_view(request, project_id):
-    project = ProjectModel.object.get(pk_id = project_id)
+    project = ProjectModel.objects.get(pk = project_id)
     purchases = project.purchases
-    return render(request, 'project_detail.html', context = {
-        'project':project,
-        'purchases':purchases,
-    })
-def purchase_add_view(request, project_id):
-    project = ProjectModel.object.get(pk_id = project_id)
     if(request.method == 'POST'):
         postData = request.POST
         purchase = PurchaseModel.objects.create(
@@ -46,10 +41,18 @@ def purchase_add_view(request, project_id):
             quantity = postData['quantity'],
             price = postData['price'],
         )
-        project.purchases.add(purchase)
+        print(type(postData['price']))
+        purchases.add(purchase)
+        
+        project.used_budget = float(project.used_budget) +  float(postData['price'])
         project.save()
-        project.used_budget += purchase.price*purchase.quantity
+    return render(request, 'project_detail.html', context = {
+        'project':project,
+        'purchases':purchases,
+    })
+def purchase_add_view(request, project_id):
+    
 
-    return render(request, 'project_add_form.html',context = {})
+    return render(request, 'project_detail.html',context = {})
 
 

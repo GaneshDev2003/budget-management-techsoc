@@ -1,0 +1,41 @@
+{%extends 'base.html'%}
+{%block content%}
+<h1>
+    {{project.title}}
+</h1>
+<form method="POST">
+    {% csrf_token %}
+    <div class = "row-g-0">
+        <div class = "col-lg-6">
+            <input name = "name" placeholder="Enter Purchase name" type="text" />
+        </div>
+
+        <div class = "col-lg-3">
+            <input name = "quantity" placeholder="Enter Quantity" type="number" />
+        </div>
+        <div class = "col-lg-3">
+            <input name = "price" placeholder="Enter price" type="number" />
+        </div>
+        <button type = "submit" class="btn btn-primary">Add</button>
+    </div>
+</form>
+    <div class="card">
+        <h>
+            {{project.used_budget}}
+        </h>
+        <table>
+            <thead>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </thead>
+            {%for purchase in purchases.all%}
+            <tr>
+                <td>{{purchase.name}}</td>
+                <td>{{purchase.quantity}}</td>
+                <td>{{purchase.price}}</td>
+            </tr>
+            {%endfor%}
+        </table>
+      </div>
+{%endblock content%}
