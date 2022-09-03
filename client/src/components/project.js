@@ -4,8 +4,12 @@ const Project = ({ id, projectname, budgetalloted, budgetspent }) => {
   return (
     <div className="card">
       <h1 className="title">{projectname}</h1>
-      <h3 className="alloted"> {budgetalloted} </h3>
-      <h3 className="used"> {budgetspent}</h3>
+
+      <div className="right-top">
+        <input type="range" className="slider" min="0" max={budgetalloted} value={budgetspent}></input>
+        <h3 className="fundStatus">{budgetspent} / {budgetalloted}</h3>
+      </div>
+
     </div>
   );
 };

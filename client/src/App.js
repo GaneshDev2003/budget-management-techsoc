@@ -1,4 +1,5 @@
 import OverViewPage from "./pages/overViewPage";
+import './index.css';
 
 function App() {
   return (
