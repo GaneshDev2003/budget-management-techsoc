@@ -1,6 +1,7 @@
 {%extends 'base.html'%}
 {%block content%}
 <ul>
+<<<<<<< HEAD
   {%for project in projects.all%}
   <li>
     <div class="card">
@@ -12,7 +13,21 @@
     </div>
   </li>
   {% endfor %}
+=======
+    {%for project in projects.all%}
+    <li>
+        <div class="card">
+            <h1 class="title">{{project.title}}</h1>
+            <div class="right-top">
+              <input type="range" min="0" max={{project.allocated}} value={{project.used_budget}} disabled></input>
+              <h3 class="fundStatus">{{project.used_budget}} / {{project.allocated}}</h3>
+            </div>
+            <a href="{%url 'project_detail' project.id %}" class = "stretched-link"></a>
+          </div>
+    </li>
+    {% endfor %}
+>>>>>>> 7ccc7b4acc0b072e99bdcd3ccd308e8a5c4fdc0f
 </ul>
-
+<a href = "{%url 'create_project' %}">Add</a>
 
 {%endblock content%}
