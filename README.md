@@ -2,11 +2,10 @@
 24-hr Hackathon
 
 
-#Run instructions: <br>
+## Run instructions: <br>
 ```
 python manage.py runserver
 ```
 
-
-#Framework usage:
+## Framework usage:
 Django
