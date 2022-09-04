@@ -4,10 +4,10 @@ from django.db import models
 class PurchaseModel(models.Model):
     name = models.CharField(max_length=50)
     quantity = models.IntegerField()
-    price = models.FloatField()
+    price = models.FloatField(default=0)
 
 class ProjectModel(models.Model):
     title = models.CharField(max_length=50)
     allocated = models.FloatField()
     purchases = models.ManyToManyField(PurchaseModel)
-    used_budget = models.FloatField()
+    used_budget = models.FloatField(null = True)

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content%}
+
+    <form method = "POST">
+        {% csrf_token %}
+        <div class = "col-md-6 offset-md-3">
+            <h1 class ="font-weight-bold py-3">Add a project</h1>
+        <div class="form-outline mb-4">
+            <input type = "text" name = "title" placeholder="Enter the Title"/>
+            <br>
+        </div>
+        
+        <div class="form-outline mb-4">
+            <input type = "number" name = "allocated" placeholder="Enter the starting balance"/>
+            <br>
+        </div>
+        <button type = "submit" class = "btn btn-md">Add Project</button>
+        </div>
+    </form>
+{%endblock content%}
