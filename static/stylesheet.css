@@ -1,7 +1,11 @@
 body {
-    
     background: rgb(221, 63, 104);
     background: linear-gradient(90deg, rgba(221, 63, 104, 1) 1%, rgba(161, 217, 179, 1) 99%);
+}
+
+.card {
+    background: rgb(205, 97, 214);
+    background: linear-gradient(90deg, rgba(205, 97, 214, 1) 1%, rgba(71, 93, 199, 1) 99%);
 }
 
 li {

@@ -1,21 +1,23 @@
 <style>
-    .top-nav{
-        position : fixed
-    }
+  .navbar {
+    background: rgb(220, 37, 85);
+    background: linear-gradient(90deg, rgba(220, 37, 85, 1) 1%, rgb(70, 207, 113) 99%);
+  }
 </style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">GodavBM</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'project_list' %}">Home</a>
-          </li>
-          
-        </ul>
-      </div>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">GodavBM</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'project_list' %}">Home</a>
+        </li>
+
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
