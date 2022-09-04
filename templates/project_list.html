@@ -1,7 +1,7 @@
 {%extends 'base.html'%}
 {%block content%}
 
-<h2 class="f1">Budget Management Portal</h2>
+<h2 class="f1 mt-3">Budget Management Portal</h2>
 <ul>
   {%for project in projects.all%}
   <li>
@@ -16,8 +16,8 @@
   </li>
   {% endfor %}
 </ul>
-<div class="text-center">
-  <a class="btn btn-primary" href="{%url 'create_project' %}">Add a new project</a>
+<div class="text-center mb-3">
+  <a class="btn btn-primary " href="{%url 'create_project' %}">Add a new project</a>
 </div>
 
 {%endblock content%}

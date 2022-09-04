@@ -10,4 +10,4 @@ class ProjectModel(models.Model):
     title = models.CharField(max_length=50)
     allocated = models.FloatField()
     purchases = models.ManyToManyField(PurchaseModel)
-    used_budget = models.FloatField(null = True)
+    used_budget = models.FloatField(null = True, default=0)
